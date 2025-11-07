@@ -1,0 +1,291 @@
+================================================================================
+ RISK DISCOVERY METHOD COMPARISON REPORT
+================================================================================
+
+ SUMMARY TABLE
+--------------------------------------------------------------------------------
+Method                         Patterns     Quality             
+--------------------------------------------------------------------------------
+kmeans                         7            Silhouette: 0.017   
+lda                            7            Perplexity: 1186.4  
+hierarchical                   7            Silhouette: N/A     
+dbscan                         1            See details         
+nmf                            7            See details         
+spectral                       7            Silhouette: N/A     
+gmm                            7            See details         
+minibatch_kmeans               7            See details         
+risk_o_meter                   N/A          Silhouette: 0.024   
+--------------------------------------------------------------------------------
+
+ DETAILED ANALYSIS
+================================================================================
+
+KMEANS
+--------------------------------------------------------------------------------
+Method: K-Means_Clustering
+Patterns Discovered: 7
+Quality Metrics:
+  - silhouette_score: 0.017
+  - n_patterns: 3
+Pattern Diversity:
+  - avg_pattern_size: 3637.333
+  - std_pattern_size: 3923.606
+  - min_pattern_size: 436
+  - max_pattern_size: 9163
+  - balance_score: 0.481
+
+Top 3 Patterns:
+  low_risk_obligation_pattern
+    Keywords: shall, agreement, company, product, insurance
+    Clauses: 9163
+  low_risk_liability_pattern
+    Keywords: party, consent, damages, agreement, written consent
+    Clauses: 1313
+  low_risk_compliance_pattern
+    Keywords: laws, state, governed, laws state, shall governed
+    Clauses: 436
+
+LDA
+--------------------------------------------------------------------------------
+Method: LDA_Topic_Modeling
+Patterns Discovered: 7
+Quality Metrics:
+  - perplexity: 1186.381
+  - avg_topic_diversity: 6.312
+Pattern Diversity:
+  - avg_pattern_size: 1974.714
+  - std_pattern_size: 777.392
+  - min_pattern_size: 1146
+  - max_pattern_size: 3426
+  - balance_score: 0.718
+
+Top 3 Topics:
+  Topic 0: Topic_PARTY_AGREEMENT
+    Keywords: party, agreement, shall, company, consent
+    Clauses: 2517 (18.2%)
+  Topic 1: Topic_INTELLECTUAL_PROPERTY
+    Keywords: shall, product, products, agreement, section
+    Clauses: 3426 (24.8%)
+  Topic 2: Topic_COMPLIANCE
+    Keywords: shall, agreement, laws, state, governed
+    Clauses: 1314 (9.5%)
+
+HIERARCHICAL
+--------------------------------------------------------------------------------
+Method: Hierarchical_Agglomerative_Clustering
+Patterns Discovered: 7
+Quality Metrics:
+  - silhouette_score: N/A
+  - avg_cluster_size: 1974.714
+Pattern Diversity:
+  - avg_pattern_size: 1974.714
+  - std_pattern_size: 3483.902
+  - min_pattern_size: 91
+  - max_pattern_size: 10483
+  - balance_score: 0.362
+
+Top 3 Clusters:
+  Cluster 0: RISK_AGREEMENT_SHALL
+    Keywords: agreement, shall, party, company, license
+    Clauses: 10483 (75.8%)
+  Cluster 1: RISK_TERM_DATE
+    Keywords: term, date, agreement, effective, effective date
+    Clauses: 1018 (7.4%)
+  Cluster 2: RISK_DAY_2019
+    Keywords: day, 2019, 2018, 2020, march
+    Clauses: 796 (5.8%)
+
+DBSCAN
+--------------------------------------------------------------------------------
+Method: DBSCAN_Density_Based_Clustering
+Patterns Discovered: 1
+Quality Metrics:
+  - n_clusters: 1
+  - outlier_ratio: 0.031
+  - avg_cluster_size: 13396.000
+Pattern Diversity:
+  - avg_pattern_size: 13396.000
+  - std_pattern_size: 0.000
+  - min_pattern_size: 13396
+  - max_pattern_size: 13396
+  - balance_score: 1.000
+
+Top 3 Clusters:
+  Cluster 0: RISK_CLUSTER_0_AGREEMENT
+    Keywords: agreement, shall, party, company, term
+    Clauses: 13396 (96.9%)
+
+Outliers Detected: 427 (3.1%)
+  → These represent rare or unique risk patterns
+
+NMF
+--------------------------------------------------------------------------------
+Method: NMF_Matrix_Factorization
+Patterns Discovered: 7
+Quality Metrics:
+  - reconstruction_error: 116.125
+  - sparsity: 1.000
+  - avg_component_strength: 0.000
+
+SPECTRAL
+--------------------------------------------------------------------------------
+Method: Spectral_Clustering
+Patterns Discovered: 7
+Quality Metrics:
+  - silhouette_score: N/A
+  - n_clusters_found: 7
+Pattern Diversity:
+  - avg_pattern_size: 1974.714
+  - std_pattern_size: 4787.658
+  - min_pattern_size: 11
+  - max_pattern_size: 13702
+  - balance_score: 0.292
+
+Top 3 Clusters:
+  Cluster 0: SPECTRAL_AGREEMENT_SHALL
+    Keywords: agreement, shall, party, company, term
+    Clauses: 13702 (99.1%)
+  Cluster 1: SPECTRAL_SELLER PERPETUAL_GRANTS SELLER
+    Keywords: seller perpetual, grants seller, arizona field, use arizona, company licensed
+    Clauses: 14 (0.1%)
+  Cluster 2: SPECTRAL_CONSULTING AGREEMENT_CONSULTING
+    Keywords: consulting agreement, consulting, agreement, zynga, events
+    Clauses: 11 (0.1%)
+
+GMM
+--------------------------------------------------------------------------------
+Method: Gaussian_Mixture_Model
+Patterns Discovered: 7
+Quality Metrics:
+  - bic: -5743043.237
+  - aic: -5753636.167
+  - avg_confidence: 0.988
+
+MINIBATCH_KMEANS
+--------------------------------------------------------------------------------
+Method: MiniBatch_KMeans
+Patterns Discovered: 7
+Quality Metrics:
+  - inertia: 13303.751
+  - avg_cluster_cohesion: 0.498
+Pattern Diversity:
+  - avg_pattern_size: 1974.714
+  - std_pattern_size: 4821.530
+  - min_pattern_size: 2
+  - max_pattern_size: 13785
+  - balance_score: 0.291
+
+Top 3 Clusters:
+  Cluster 0: MB_HARPOON_NOTICE CHANGE CONTROL
+    Keywords: harpoon, notice change control, notice change, abbvie, closing date
+    Clauses: 3 (0.0%)
+  Cluster 1: MB_BUYER_BUYER BUYER
+    Keywords: buyer, buyer buyer, entities, company, request
+    Clauses: 12 (0.1%)
+  Cluster 2: MB_BANK AMERICA_AMERICA
+    Keywords: bank america, america, america affiliates permitted, affiliates permitted assigns, bank
+    Clauses: 6 (0.0%)
+
+RISK_O_METER
+--------------------------------------------------------------------------------
+Method: Risk-o-meter (Doc2Vec + SVM)
+Patterns Discovered: 0
+Quality Metrics:
+  - silhouette_score: 0.024
+  - embedding_dimension: 100
+  - doc2vec_epochs: 30
+Pattern Diversity:
+  - avg_pattern_size: 1974.714
+  - std_pattern_size: 1449.941
+  - min_pattern_size: 534
+  - max_pattern_size: 4363
+  - balance_score: 0.577
+
+Top 3 Patterns:
+  pattern_0
+    Clauses: 1492
+  pattern_1
+    Clauses: 2430
+  pattern_2
+    Clauses: 4363
+
+================================================================================
+ RECOMMENDATIONS BY METHOD
+================================================================================
+
+═══ BASIC METHODS (Fast & Reliable) ═══
+
+1. K-MEANS (Original):
+    Best for: Fast, scalable clustering with clear boundaries
+    Use when: You need consistent performance and interpretability
+   ⚡ Speed: Very Fast |  Accuracy: Good |  Scalability: Excellent
+   
+2. LDA TOPIC MODELING:
+    Best for: Discovering overlapping risk categories
+    Use when: Clauses may belong to multiple risk types
+   ⚡ Speed: Moderate |  Accuracy: Very Good |  Scalability: Good
+   
+3. HIERARCHICAL CLUSTERING:
+    Best for: Understanding risk relationships and hierarchies
+    Use when: You want to explore risk structure at different levels
+   ⚡ Speed: Moderate |  Accuracy: Good |  Scalability: Limited (<10K clauses)
+   
+4. DBSCAN:
+    Best for: Finding rare/unusual risks and handling outliers
+    Use when: You need to identify unique risk patterns
+   ⚡ Speed: Fast |  Accuracy: Good |  Scalability: Good
+
+═══ ADVANCED METHODS (Comprehensive Analysis) ═══
+
+5. NMF (Non-negative Matrix Factorization):
+    Best for: Parts-based decomposition with interpretable components
+    Use when: You want additive risk factors (clause = sum of components)
+   ⚡ Speed: Fast |  Accuracy: Very Good |  Scalability: Excellent
+    Unique: Components are non-negative, highly interpretable
+   
+6. SPECTRAL CLUSTERING:
+    Best for: Complex relationships and non-convex cluster shapes
+    Use when: Risk patterns have intricate graph-like relationships
+   ⚡ Speed: Slow |  Accuracy: Excellent |  Scalability: Limited (<5K clauses)
+    Unique: Uses eigenvalue decomposition, best quality for small datasets
+   
+7. GAUSSIAN MIXTURE MODEL:
+    Best for: Soft probabilistic clustering with uncertainty estimates
+    Use when: You need confidence scores for risk assignments
+   ⚡ Speed: Moderate |  Accuracy: Very Good |  Scalability: Good
+    Unique: Provides probability distributions, quantifies uncertainty
+   
+8. MINI-BATCH K-MEANS:
+    Best for: Ultra-large datasets (100K+ clauses)
+    Use when: You need K-Means quality at 3-5x faster speed
+   ⚡ Speed: Ultra Fast |  Accuracy: Good |  Scalability: Extreme (>1M clauses)
+    Unique: Online learning, extremely memory efficient
+
+9. RISK-O-METER (Doc2Vec + SVM)  PAPER BASELINE:
+    Best for: Supervised learning with labeled data
+    Use when: You have risk labels and want paper-validated approach
+   ⚡ Speed: Moderate |  Accuracy: Excellent (91% reported) |  Scalability: Good
+    Unique: Paragraph vectors capture semantic meaning, proven in literature
+   Reference: Chakrabarti et al., 2018 - "Risk-o-meter framework"
+
+═══ SELECTION GUIDE ═══
+
+ Dataset Size:
+   • <1K clauses: Use Spectral or GMM for best quality
+   • 1K-10K clauses: All methods work well
+   • 10K-100K clauses: Avoid Hierarchical and Spectral
+   • >100K clauses: Use Mini-Batch K-Means
+
+ Quality Priority:
+   • Highest: Spectral, GMM, LDA
+   • Balanced: NMF, K-Means
+   • Speed-focused: Mini-Batch, DBSCAN
+
+ Special Requirements:
+   • Overlapping risks: LDA, GMM
+   • Outlier detection: DBSCAN
+   • Hierarchical structure: Hierarchical
+   • Interpretability: NMF, LDA
+   • Uncertainty estimates: GMM, LDA
+
+================================================================================
