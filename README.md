@@ -38,37 +38,38 @@ pip install -r requirements.txt
 ##  Project Structure
 
 ```
-code/
-├── main.py                     # Main execution script
-├── demo.py                     # Interactive demonstration
-├── requirements.txt            # Python dependencies
-├── src/                        # Source code modules
-│   ├── __init__.py
-│   ├── config.py              # Configuration management
-│   ├── data/                  # Data processing pipeline
-│   │   ├── __init__.py
-│   │   ├── pipeline.py        # Data loading and preprocessing
-│   │   └── risk_taxonomy.py   # Enhanced risk taxonomy
-│   ├── models/                # Model implementations
-│   │   ├── __init__.py
-│   │   ├── baseline_scorer.py # Baseline risk assessment
-│   │   ├── legal_bert.py      # Legal-BERT architecture
-│   │   └── model_utils.py     # Model utilities
-│   ├── training/              # Training infrastructure
-│   │   ├── __init__.py        # Training loops and data loaders
-│   │   └── trainer.py         # Training management
-│   ├── evaluation/            # Evaluation and calibration
-│   │   ├── __init__.py        # Comprehensive evaluation
-│   │   └── uncertainty.py     # Uncertainty quantification
-│   └── utils/                 # Shared utilities
-│       └── __init__.py        # Utility functions
-├── dataset/                   # CUAD dataset
-│   └── CUAD_v1/
-│       ├── CUAD_v1.json
-│       ├── master_clauses.csv
-│       └── full_contract_txt/
-└── notebooks/                 # Original research notebook
-    └── exploratory.ipynb
+code2/
+├── config.py                     # Configuration settings
+├── model.py                      # Neural network architectures
+├── trainer.py                    # Training pipeline
+├── evaluator.py                  # Evaluation framework
+├── calibrate.py                  # Calibration methods
+├── inference.py                  # Production inference
+├── risk_discovery.py             # LDA risk discovery
+├── data_loader.py                # CUAD dataset loader
+├── utils.py                      # Helper functions
+├── train.py                      # Main training script
+├── evaluate.py                   # Main evaluation script
+├── requirements.txt              # Python dependencies
+│
+├── dataset/CUAD_v1/              # Legal contracts dataset
+│   ├── CUAD_v1.json             # 13,823 annotated clauses
+│   └── full_contract_txt/       # 510 full contracts
+│
+├── models/legal_bert/            # Saved models
+│   ├── final_model.pt           # Trained model
+│   └── calibrated_model.pt      # Calibrated model
+│
+├── checkpoints/                  # Training artifacts
+│   ├── training_history.png     # Loss curves
+│   ├── confusion_matrix.png     # Evaluation plots
+│   ├── evaluation_results.json  # Detailed metrics
+│   └── calibration_results.json # Calibration stats
+│
+└── doc/                          # Documentation
+    ├── PIPELINE_OVERVIEW.md      # This file!
+    ├── QUICK_START.md            # Getting started guide
+    └── IMPLEMENTATION.md         # Technical details
 ```
 
 ## Quick Start
